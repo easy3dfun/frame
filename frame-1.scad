@@ -6,9 +6,8 @@ $fs = production_quality ? 0.125 : 0.25; // minimum size of a fragment
 
 lens_diameter    = 60;
 tolerance        = 0.5;   // Gap on each side so the lens easily fits
-frame_thickness   = 1.2;   // Walls of the frame
-frame_height       = 7;
-clamp_pos_z     = 4;     // Vertical position of the spheres
+frame_thickness  = 1.2;   // Walls of the frame
+frame_height     = 5;
 corner_radius    = 8;     // Radius for the rounded corners of the square box
 
 /* Calculations */
@@ -16,7 +15,10 @@ diameter_with_tolerance = lens_diameter + 2*tolerance;
 
 frame();
 
-frame_clamps_tori();
+frame_clamps_tori(12, 1, -2);
+
+frame_clamps_tori(12, 0.75, 3);
+
 
 module frame() {
     difference() {
@@ -37,20 +39,23 @@ module frame() {
     }
 }
 
-module frame_clamps_tori() {
-  nr_clamps = 16;
-  torus_thickness = 1;
-  torus_radius = 1.5;
-  module tori() {
-    for (i = [1 : 360/nr_clamps : 360]) {
-        x = (diameter_with_tolerance/2) * cos(i);
-        y = (diameter_with_tolerance/2) * sin(i);
-        translate([x, y, clamp_pos_z])
-            rotate([90,0,i])
-            rotate_extrude(convexity = 10)
-                translate([torus_radius, 0, 0])
-                circle(r = torus_thickness);
-    }
+module frame_clamps_tori(
+    nr        = 12,
+    plus_dist = 0.75,
+    z         = z
+    ) {
+    thickness = 1;
+    radius = 1.5;
+    module tori() {
+      for (i = [1 : 360/nr : 360]) {
+          x = (diameter_with_tolerance/2+plus_dist*2) * cos(i);
+          y = (diameter_with_tolerance/2+plus_dist*2) * sin(i);
+          translate([x, y, z])
+              rotate([90,0,i])
+              rotate_extrude()
+                  translate([radius, 0, 0])
+                  circle(r = thickness);
+      }
   }
   tori();
 }
