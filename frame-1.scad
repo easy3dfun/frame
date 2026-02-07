@@ -41,7 +41,7 @@ module frame() {
 module frame_clamps_tori(
     nr        = 12,
     plus_dist = 0.75,
-    z         = z
+    z         = 0,
     ) {
     thickness = 1;
     radius = 1.5;
