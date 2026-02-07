@@ -23,14 +23,14 @@ module frame() {
         // Outer part of the ring
         cylinder(
             h = frame_height,
-            d = diameter_with_tolerance,
+            d = diameter_with_tolerance + frame_thickness * 2,
             center = true
         );
     
         // Inner part to be removed
         cylinder(
             h = frame_height+2,
-            d = diameter_with_tolerance - frame_thickness * 2,
+            d = diameter_with_tolerance,
             center = true
         );
 
@@ -38,23 +38,19 @@ module frame() {
 }
 
 module frame_clamps_tori() {
+  nr_clamps = 16;
   torus_thickness = 1;
   torus_radius = 1.5;
-  bound = diameter_with_tolerance+frame_thickness;
   module tori() {
-    for (i = [1 : 20 : 180]) {
-        angle = i*10;
-        x = (diameter_with_tolerance/2+1.6) * cos(angle);
-        y = (diameter_with_tolerance/2+1.6) * sin(angle);
+    for (i = [1 : 360/nr_clamps : 360]) {
+        x = (diameter_with_tolerance/2) * cos(i);
+        y = (diameter_with_tolerance/2) * sin(i);
         translate([x, y, clamp_pos_z])
-            rotate([90,0,i*10])
+            rotate([90,0,i])
             rotate_extrude(convexity = 10)
                 translate([torus_radius, 0, 0])
                 circle(r = torus_thickness);
     }
   }
-  intersection() {
-    tori();
-    // translate([-bound/2,-bound/2,0]) cube([bound,bound,10]);
-  }
+  tori();
 }
