@@ -7,7 +7,6 @@ lens_diameter    = 60;
 tolerance        = 0.5;   // Gap on each side so the lens easily fits
 frame_thickness  = 1.2;   // Walls of the frame
 frame_height     = 5;
-corner_radius    = 8;     // Radius for the rounded corners of the square box
 
 /* Calculations */
 diameter_with_tolerance = lens_diameter + 2*tolerance;
