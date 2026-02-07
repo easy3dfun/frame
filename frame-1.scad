@@ -1,6 +1,5 @@
 production_quality = false;
 
-
 $fa = production_quality ?     2 :    4; // minimum angle of a fragment
 $fs = production_quality ? 0.125 : 0.25; // minimum size of a fragment
 
