@@ -46,11 +46,12 @@ module frame_clamps_tori(
     thickness = 1;
     radius = 1.5;
     module tori() {
-      for (i = [1 : 360/nr : 360]) {
-          x = (diameter_with_tolerance/2+plus_dist*2) * cos(i);
-          y = (diameter_with_tolerance/2+plus_dist*2) * sin(i);
+      for (i = [0 : nr-1]) {
+          angle = i * 360 / nr;
+          x = (diameter_with_tolerance/2+plus_dist*2) * cos(angle);
+          y = (diameter_with_tolerance/2+plus_dist*2) * sin(angle);
           translate([x, y, z])
-              rotate([90,0,i])
+              rotate([90,0,angle])
               rotate_extrude()
                   translate([radius, 0, 0])
                   circle(r = thickness);
