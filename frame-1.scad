@@ -11,12 +11,20 @@ frame_height     = 5;
 /* Calculations */
 diameter_with_tolerance = lens_diameter + 2*tolerance;
 
-frame();
+intersection() {
+union() {
+    frame();
+    frame_clamps_tori(12, 1, -1.75);
+    frame_clamps_tori(12, 0.75, 1.75);
+};
 
-frame_clamps_tori(12, 1, -2);
+        cylinder(
+            h = frame_height,
+            d = diameter_with_tolerance + frame_thickness * 2,
+            center = true
+        );
 
-frame_clamps_tori(12, 0.75, 3);
-
+}
 
 module frame() {
     difference() {
@@ -50,7 +58,7 @@ module frame_clamps_tori(
           x = (diameter_with_tolerance/2+plus_dist*2) * cos(angle);
           y = (diameter_with_tolerance/2+plus_dist*2) * sin(angle);
           translate([x, y, z])
-              rotate([90,0,angle])
+              rotate([0,0,angle])
               rotate_extrude()
                   translate([radius, 0, 0])
                   circle(r = thickness);
