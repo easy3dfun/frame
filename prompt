@@ -1,0 +1,9 @@
+scad:
+
+Make an 3D object which can hold a lens with a 60mm diameter and 1mm high.
+
+Be aware that we cannot have too much overhang. So you need to come up with a good idea for a printable object.
+
+We don't want multiple objects that have to be glued together. Just one object that can be printed in one go.
+
+Be creative.
