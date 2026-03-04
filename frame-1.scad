@@ -5,25 +5,23 @@ $fs = production_quality ? 0.125 : 0.25; // minimum size of a fragment
 
 lens_diameter    = 60;
 tolerance        = 0.5;   // Gap on each side so the lens easily fits
-frame_thickness  = 1.2;   // Walls of the frame
+frame_thickness  = 0.8;   // Walls of the frame
 frame_height     = 5;
 
 /* Calculations */
 diameter_with_tolerance = lens_diameter + 2*tolerance;
 
 intersection() {
-union() {
-    frame();
-    frame_clamps_tori(12, 1, -1.75);
-    frame_clamps_tori(12, 0.75, 1.75);
-};
-
-        cylinder(
-            h = frame_height,
-            d = diameter_with_tolerance + frame_thickness * 2,
-            center = true
-        );
-
+    union() {
+        frame();
+        frame_clamps_tori(12, 0.9, -1.5);
+        frame_clamps_tori(12, 1, 1.5);
+    };
+    cylinder(
+        h = frame_height,
+        d = diameter_with_tolerance + frame_thickness * 2,
+        center = true
+    );
 }
 
 module frame() {
