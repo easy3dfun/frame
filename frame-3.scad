@@ -1,9 +1,3 @@
-// =============================================
-//  Printable Lens Holder  (single piece, no supports)
-//  Lens: 60 mm diameter × 1 mm thick
-//  Max overhang angle: 45° — fully FDM-safe
-// =============================================
-
 /* [Lens] */
 lens_diameter   = 60;    // mm
 lens_thickness  = 1;     // mm
