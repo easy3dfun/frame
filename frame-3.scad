@@ -23,7 +23,7 @@ hooks();
    ========================================= */
 
 module hooks() {
-    translate([22, 22, 10])
+    translate([-8, 27, 10])
         rotate([90, 0, 145])
             single_hook();
 
@@ -65,7 +65,7 @@ module lens_rim() {
     wall            = 2;     // wall thickness  (mm)
     ledge           = 2;     // inner shelf width that supports the lens (mm)
     base_height     = 1.2;   // solid ring below the 45° chamfer (mm)
-    tolerance       = 0;     // radial clearance for fit (mm)
+    tolerance       = 0.3;     // radial clearance for fit (mm)
     num_tabs        = 32;    // number of retention / flex tabs
     slot_width      = 2.4;   // gap between neighbouring tabs (mm)
     retention_lip   = 1.2;   // how far tabs taper inward at top (mm)
