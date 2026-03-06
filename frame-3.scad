@@ -6,10 +6,10 @@ lens_thickness  = 1;     // mm
 wall            = 2;     // wall thickness  (mm)
 ledge           = 2;     // inner shelf width that supports the lens (mm)
 base_height     = 1.2;   // solid ring below the 45° chamfer (mm)
-tolerance       = 0.3;   // radial clearance for fit (mm)
+tolerance       = 0;     // radial clearance for fit (mm)
 num_tabs        = 32;    // number of retention / flex tabs
 slot_width      = 2.4;   // gap between neighbouring tabs (mm)
-retention_lip   = 0.6;   // how far tabs taper inward at top (mm)
+retention_lip   = 1.2;   // how far tabs taper inward at top (mm)
 tab_height      = 2.5;   // tab height above lens surface (mm)
 entry_chamfer   = 0.8;   // lead-in chamfer at top rim (mm)
 
