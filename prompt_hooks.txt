@@ -1,0 +1,5 @@
+Look at the lens rim below. It can hold a lens. I want to attach
+the rim to my existing glasses. So it hangs on the frame or one
+of the existing rims. Make a new model "hooks", which when
+printed as a union with the lens_rim() model adds hooks to it
+that let me attach the rim to my glasses.
